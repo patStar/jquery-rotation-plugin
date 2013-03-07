@@ -43,7 +43,7 @@
 	 */
 	var rotate = function(center, radius, speed, starting_angle) {
 		starting_angle = starting_angle ? starting_angle : 0;
-		this.addClass('rotator')
+		this.addClass('rotator').css('position','absolute')
 		this.data('rotate_around',{ 
 			main: this, 
 			radius: radius, 
