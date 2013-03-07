@@ -60,8 +60,10 @@
 	var rotateAll = function() {	
 		$('.rotator').each(function(){
 			var r = $(this).data('rotate_around');
-			var newLeft = extract(r.center.css('width'))/2+extract(r.center.css('left'))-Math.sin(r.rotation)*r.radius;
-			var newTop = extract(r.center.css('height'))/2+extract(r.center.css('top'))-Math.cos(r.rotation)*r.radius;
+			
+			var	newLeft = r.center.width()/2+r.center.offset().left-Math.sin(r.rotation)*r.radius-r.main.width()/2;
+			var newTop = r.center.height()/2+r.center.offset().top-Math.cos(r.rotation)*r.radius-r.main.height()/2;		
+			
 			r.main.css({left:newLeft,top:newTop});
 			r.rotation = (r.rotation+r.speed)%(2*Math.PI);
 		});
